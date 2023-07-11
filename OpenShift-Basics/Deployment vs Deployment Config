@@ -1,0 +1,33 @@
+In OpenShift, both "Deployment" and "DeploymentConfig" are objects used to manage the deployment of applications. However, there are some key differences between the two:
+
+Resource Type:
+
+Deployment: "Deployment" is a Kubernetes resource that manages the deployment of a set of replica pods for a specific application. It is a core object in Kubernetes and is used to declaratively define and manage the desired state of the application's pods.
+
+DeploymentConfig: "DeploymentConfig" is an extension provided by OpenShift. It is a higher-level abstraction that builds upon the Deployment object. DeploymentConfig provides additional features and capabilities that are specific to OpenShift.
+
+Compatibility:
+
+Deployment: Deployments created using the "Deployment" resource type in Kubernetes are compatible with OpenShift. They can be used and managed within an OpenShift cluster.
+
+DeploymentConfig: DeploymentConfigs are specific to OpenShift and cannot be directly used in a vanilla Kubernetes environment. They are designed to leverage OpenShift's additional features and functionalities.
+
+Rolling Updates:
+
+Deployment: In Kubernetes, the "Deployment" object supports rolling updates by default. This means that when a new version of the application is deployed, the rollout process is managed in a controlled manner, ensuring minimal downtime and smooth transitions between versions.
+
+DeploymentConfig: The "DeploymentConfig" in OpenShift provides similar rolling update functionality as the "Deployment" in Kubernetes. It allows you to specify the update strategy, such as the number of replicas to be updated at a time, the maximum number of unavailable pods during the update, etc. DeploymentConfig offers additional flexibility in managing the rolling updates, including pause, resume, and rollback options.
+
+Triggers and Lifecycle Hooks:
+
+Deployment: Kubernetes deployments support a limited set of triggers, such as manual triggers or time-based triggers using CronJobs. They also provide lifecycle hooks, which are user-defined scripts or actions executed at various stages of the deployment process.
+
+DeploymentConfig: OpenShift's DeploymentConfig introduces additional trigger mechanisms beyond what is available in Kubernetes deployments. These triggers include webhooks, image change triggers, and configuration change triggers. These triggers allow you to automate the deployment process based on events such as changes to the container image or configuration.
+
+Environment Variables and Secrets:
+
+Deployment: In Kubernetes deployments, environment variables and secrets can be defined and injected into the application's pods using the respective mechanisms provided by Kubernetes.
+
+DeploymentConfig: OpenShift's DeploymentConfig provides a more user-friendly and streamlined approach for defining and managing environment variables and secrets. It offers built-in support for injecting environment variables and secrets from various sources, including ConfigMaps and OpenShift Secrets.
+
+Overall, while both "Deployment" and "DeploymentConfig" are used to manage the deployment of applications in OpenShift, "DeploymentConfig" provides additional capabilities specific to the OpenShift platform. It offers enhanced rolling update strategies, more flexible trigger mechanisms, and streamlined management of environment variables and secrets. If you are using OpenShift, it is recommended to utilize the "DeploymentConfig" object for deploying and managing applications to take advantage of its extended features.
