@@ -1,0 +1,20 @@
+
+In OpenShift, Image Streams are a feature that allows for the management and tracking of container images within the platform. Image Streams provide a layer of abstraction over container images, enabling users to reference and track images by a specific name and version.
+
+Here are the key aspects and features of Image Streams in OpenShift:
+
+Image Tagging: Image Streams support the concept of tags, which are human-readable labels assigned to specific versions of an image. These tags can represent different versions, branches, or variants of an image, making it easy to reference and deploy specific versions of an application.
+
+Image Metadata: Image Streams store metadata about the associated container images. This metadata includes information like the Docker image name, the repository location, the creation timestamp, and the labels attached to the image. This metadata can be used for various purposes, such as organizing and searching for images based on specific criteria.
+
+Automatic Updates: Image Streams can be set to automatically track and pull the latest versions of container images from an external image repository. This ensures that applications deployed using the Image Streams always use the most recent version of the image.
+
+Image Rollbacks: Image Streams allow for easy rollbacks to a previous version of an image by simply updating the associated tag. This feature is particularly useful when a newly deployed version of an application introduces issues, and you need to quickly revert to a known working version.
+
+Image Pipelines: Image Streams can be used as part of a continuous integration and deployment (CI/CD) pipeline. When a new image version is pushed to the image repository, it triggers events that can be used to automate subsequent actions, such as deploying the new version to a testing or production environment.
+
+Integration with Build Configurations: Image Streams can be integrated with Build Configurations in OpenShift. When a new build is triggered, the resulting container image can be automatically pushed to the associated Image Stream. This ensures that the latest build is available for deployment using the predefined image tag.
+
+Fine-Grained Access Control: OpenShift provides access control mechanisms to regulate who can access and modify Image Streams. This allows for secure image management and ensures that only authorized users can make changes to the associated tags and versions.
+
+Image Streams in OpenShift provide a powerful mechanism for managing and referencing container images within the platform. By abstracting away the specific image versions behind tags, Image Streams enable easy versioning, rollback, and automation of the image deployment process. They enhance the overall productivity, flexibility, and control of containerized applications in OpenShift.
