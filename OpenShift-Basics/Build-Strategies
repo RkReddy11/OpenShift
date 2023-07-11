@@ -1,0 +1,19 @@
+
+OpenShift provides several build strategies to build container images from source code. Each build strategy has its own approach to creating the image and offers different benefits and trade-offs. Here's a proper explanation of the build strategies available in OpenShift:
+
+Source-to-Image (S2I):
+
+S2I is an OpenShift-specific build strategy that streamlines the process of building container images from source code. It automates many of the steps required for building and packaging applications, including the detection of the appropriate build tools and dependencies.
+With S2I, developers can provide their source code, and OpenShift handles the build process, injecting the source code into a base builder image, running build scripts or commands, and producing the final runnable container image.
+S2I simplifies the build process, allows for incremental builds, and enables developers to focus on writing code rather than managing the build configuration.
+Docker Strategy:
+
+The Docker strategy allows users to build container images using a Dockerfile. In this strategy, developers provide a Dockerfile that specifies the instructions for building the image, including the base image, dependencies, build steps, and configuration.
+When a Docker build is triggered, OpenShift builds the image using the specified Dockerfile and the associated build context (source code and any additional files or resources required).
+The Docker strategy provides flexibility and familiarity for developers who are already accustomed to working with Dockerfiles and the Docker build process.
+Custom Build:
+
+The Custom build strategy allows users to define their own custom build process by providing an external build script or command. This strategy gives developers full control over the build process and allows for customization based on specific requirements.
+With the Custom build strategy, developers provide a build script or command that OpenShift executes to build the container image. The script can perform any necessary build actions, such as compiling code, running tests, or packaging the application.
+This strategy is suitable when there is a need for complex or specialized build steps that cannot be easily achieved with S2I or Docker strategies.
+Each build strategy in OpenShift has its strengths and is suitable for different scenarios. S2I is recommended for streamlined and easy-to-use builds, Docker strategy offers flexibility with Dockerfile-based builds, and Custom build provides full control for specialized build requirements. Choosing the appropriate build strategy depends on factors such as developer preferences, the complexity of the build process, and the specific needs of the application being built.
