@@ -1,0 +1,13 @@
+Storage in OpenStack refers to the system and components used for managing and providing storage resources in an OpenStack cloud environment. OpenStack offers multiple storage options to cater to different use cases and requirements.
+
+    Block Storage (Cinder): Cinder is the OpenStack service responsible for managing block-level storage. It allows users to create and attach virtual disks to instances (virtual machines) within the OpenStack cloud. Cinder provides persistent storage, meaning the data remains even when the instance is terminated. It supports features like volume snapshots, cloning, and encryption, and can integrate with various backend storage technologies.
+
+    Object Storage (Swift): Swift provides a scalable and durable object storage system. It is designed to store and retrieve large amounts of unstructured data, such as images, videos, backups, and logs. Swift organizes data into containers and stores them across multiple drives and servers, ensuring high availability and data redundancy. It offers an HTTP-based API for accessing objects, making it suitable for applications that require simple and efficient storage.
+
+    Shared File System (Manila): Manila is the OpenStack service that enables users to create and manage shared file systems. It provides shared access to files and directories across multiple instances, allowing for collaboration and data sharing. Manila supports different backends, including NFS (Network File System) and CephFS (Ceph File System), and offers features like access control, snapshots, and quotas.
+
+    Image Service (Glance): Glance is responsible for managing virtual machine images used to create instances. It allows users to upload, register, and manage disk images that can be booted as instances. Glance supports various image formats and can integrate with different storage backends. It also provides features like image versioning, caching, and metadata management.
+
+    Database Storage (Trove): Trove is an OpenStack service specifically designed for managing and provisioning databases as a service. It provides users with an easy way to create, manage, and scale relational and NoSQL databases within an OpenStack environment. Trove supports various database engines, such as MySQL, PostgreSQL, MongoDB, and Redis, and handles tasks like database provisioning, backup, and replication.
+
+These storage services in OpenStack work together to provide a comprehensive and flexible storage infrastructure for different types of applications and workloads. They can be combined and integrated with other OpenStack components to meet specific storage requirements, ensuring efficient storage management, data protection, and accessibility within the cloud environment.
