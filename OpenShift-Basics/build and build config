@@ -1,0 +1,18 @@
+
+In OpenShift, the concepts of "Build" and "Build Config" are used to facilitate the process of building container images from source code. These concepts are essential in supporting continuous integration and deployment (CI/CD) workflows. Here's a proper explanation of Build and Build Config in OpenShift:
+
+Build:
+A "Build" in OpenShift refers to the process of transforming source code into a runnable container image. It involves compiling the source code, resolving dependencies, and packaging the application into a container image format such as Docker image. A build can be triggered manually or automatically whenever there are changes in the source code.
+During the build process, OpenShift creates a temporary build pod that performs the necessary tasks to build the container image. The build pod runs in an isolated environment and can have specific resource requirements and dependencies defined.
+
+Once the build is complete, the resulting container image can be stored in an image repository (such as OpenShift Container Registry) or pushed to an external image registry for later use in deployment.
+
+Build Config:
+A "Build Config" is a declarative object in OpenShift that defines the instructions and parameters for building container images. It specifies the source code location, build strategy, environment variables, image registry, and other configuration details needed to build the application.
+A Build Config can be created manually or through OpenShift's integrated source-to-image (S2I) framework, which simplifies the process of building container images from source code. S2I allows developers to provide their source code and have OpenShift automatically handle the build process, including the detection of the appropriate build tools and dependencies.
+
+Build Configs can be version controlled alongside the application source code, enabling repeatability and traceability of the build process. They can also be associated with triggers, such as Git webhooks or image change events, to automatically trigger builds when specific events occur.
+
+Build Configs can be modified and updated, allowing for iterative development and deployment. When a new build is triggered, OpenShift creates a new build pod based on the Build Config's specifications and carries out the build process according to the defined rules.
+
+Overall, the Build and Build Config concepts in OpenShift provide a powerful mechanism for automating the process of building container images from source code. They enable efficient CI/CD workflows, version control of build configurations, and automation of build triggers, resulting in streamlined and reproducible container image builds in an OpenShift environment.
