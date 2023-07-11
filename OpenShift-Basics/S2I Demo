@@ -1,0 +1,59 @@
+Let's walk through an example of using OpenShift's Source-to-Image (S2I) build strategy to build a container image from source code.
+
+Assumptions:
+
+You have an OpenShift cluster up and running, and you have the necessary permissions to create projects and build configurations.
+You have the oc command-line tool installed and configured to communicate with your OpenShift cluster.
+Here's a step-by-step guide:
+
+Create a new project in OpenShift:
+oc new-project myproject
+
+Choose a base builder image:
+
+Select a suitable base builder image for your application. For this example, let's use the python:3.9 image.
+Create an S2I build configuration:
+
+Create an S2I build configuration using the oc new-build command:
+
+oc new-build python:3.9~https://github.com/your-username/your-repo.git --name=myapp
+
+Replace your-username/your-repo.git with the URL of your source code repository.
+
+Monitor the build progress:
+
+Check the build logs to monitor the build progress:
+
+oc logs -f bc/myapp
+
+Verify the build result:
+
+Once the build completes successfully, you can verify the resulting image:
+
+oc get is
+
+Look for the ImageStream with the name myapp.
+Create an application deployment:
+
+Create a new application deployment using the created image:
+
+oc new-app myapp
+
+Expose the application:
+
+Expose the application as a route to make it accessible externally:
+
+oc expose svc/myapp
+
+Access the application:
+
+Retrieve the route URL to access your application:
+
+oc get route
+
+Open the URL in a web browser to see your application running.
+This example demonstrates the basic steps to use S2I in OpenShift. The build configuration automatically detects the appropriate builder image (python:3.9), clones the source code from the specified repository, and performs the necessary build steps. The resulting image is then used to deploy the application.
+
+You can customize the S2I build process by adding build hooks, modifying environment variables, or including additional dependencies. Refer to the OpenShift documentation for more advanced S2I features and configuration options.
+
+By leveraging OpenShift's S2I build strategy, you can streamline the process of building container images from source code, allowing for efficient application deployment and continuous integration within your OpenShift cluster
